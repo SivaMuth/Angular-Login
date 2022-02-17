@@ -1,0 +1,7 @@
+.form-error{
+    border: 1px solid red;
+}
+
+.form-success{
+    border: 1px solid green;
+}

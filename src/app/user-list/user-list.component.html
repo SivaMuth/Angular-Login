@@ -1,0 +1,98 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">User List</h1>
+    <a routerLink="/dashboard/user/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-download fa-sm text-white-50"></i> Create</a>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    </div>
+<!-- 
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+               
+                <tbody>
+                    <tr>
+                        <td>Tiger Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2011/04/25</td>
+                        <td>
+                            <a routerLink="/user/view/1" class="btn btn-primary btn-sm">View</a>
+                            <a routerLink="/user/create" class="btn btn-primary btn-sm mx-3">Edit</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Garrett Winters</td>
+                        <td>Accountant</td>
+                        <td>Tokyo</td>
+                        <td>63</td>
+                        <td>2011/07/25</td>
+                        <td>
+                            <a routerLink="/user/view/2" class="btn btn-primary btn-sm">View</a>
+                            <a routerLink="/user/create" class="btn btn-primary btn-sm mx-3">Edit</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ashton Cox</td>
+                        <td>Junior Technical Author</td>
+                        <td>San Francisco</td>
+                        <td>66</td>
+                        <td>2009/01/12</td>
+                        <td>
+                            <a routerLink="/user/view/3" class="btn btn-primary btn-sm">View</a>
+                            <a routerLink="/user/create" class="btn btn-primary btn-sm mx-3">Edit</a>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>  -->
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let user of userList">
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.country}}</td>
+                    <td>{{user.state}}</td>
+                    <td>{{user.City}}</td>
+                    <td>
+                        <a [routerLink]="['/dashboard/user/view/',user.id]" class="btn btn-primary btn-sm">View</a>
+                        <a routerLink="/dashboard/user/create" class="btn btn-primary btn-sm mx-3">Edit</a>
+                    </td>
+                </tr>
+                
+        </table>
+    </div>
+</div>

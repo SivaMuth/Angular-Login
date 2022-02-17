@@ -1,0 +1,88 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Create User</h1>
+</div>
+<div class="container">
+    <form [formGroup]="userFormData" (ngSubmit)="postFormData()">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="col-lg-12">
+                <label for="">Username</label>
+                <input [ngClass]="{'form-error':!userFormData.get('username').valid && userFormData.get('username').dirty,
+                'form-success':userFormData.get('username').valid && userFormData.get('username').dirty }"
+                type="text" formControlName="username" class="form-control" >
+                <span *ngIf="!userFormData.get('username').valid && userFormData.get('username').dirty" style="color: red;">Username should be above 3 char or below 15 char</span>
+            </div>
+            <div class="col-lg-12">
+                <label for="">Email</label>
+                <input [ngClass]="{'form-error':!userFormData.get('email').valid && userFormData.get('email').dirty,
+                'form-success':userFormData.get('email').valid && userFormData.get('email').dirty }"
+                 type="text"formControlName="email" class="form-control">
+                <span *ngIf="!userFormData.get('email').valid  && userFormData.get('email').dirty" style="color: red;">Enter the Valid Email</span>
+            </div>
+            <div class="col-lg-12">
+                <div class ="row">
+                <label for="">Phone</label>
+               <div class="col-lg-2">
+                <select class="form-control">
+                  <option value="91">+91</option> 
+                  <option value="92">+92</option>              
+                </select>
+               </div>
+               <div class="col-lg-10">
+                <input [ngClass]="{'form-error':!userFormData.get('phone').valid && userFormData.get('phone').dirty,
+                'form-success':userFormData.get('phone').valid && userFormData.get('phone').dirty }"
+                 type="number"formControlName="phone" class="form-control" >
+                <span *ngIf="!userFormData.get('phone').valid  && userFormData.get('phone').dirty" style="color: red;">Enter a Valid Phone number</span>
+               </div>
+            </div>
+        </div>
+        </div>
+            <div class="col-lg-6">
+                <div class="col-lg-12">
+                    <label for="">Country</label>
+                   <select formControlName="country" class="form-control">
+                       <option value="IN">India</option>
+                       <option value="US">US</option>
+                       <option value="CH">China</option>
+                   </select>
+                   </div>
+                   <div class="col-lg-12">
+                    <label for="">State</label>
+                    <select formControlName="state" class="form-control">
+                        <option value="TN">Tamil Nadu</option>
+                        <option value="BG">Bangalore</option>
+                        <option value="MU">Mumbai</option>
+                    </select>
+                   </div>
+                <div class="col-lg-12">
+                    <label for="">City</label>
+                    <select formControlName="city" class="form-control">
+                        <option value="CH">Chennai</option>
+                        <option value="MA">Madurai</option>
+                        <option value="CBE">Cbe</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-12 mt-3">
+                    <div class="col-lg-12"> 
+                       <!--  <div class="dls-menu-item" style="float: left;">
+                            <button (click)="onPress()" class="btn btn-primary btn-sm">Submit</button>
+                        </div>             
+                        <div id="" *ngIf="display"><br><hr>
+                           <app-user-list></app-user-list>
+                        </div>
+                        <hr> -->
+                        <input [disabled]="(!userFormData.valid || isPosting)" 
+                        type="submit" 
+                        [value] ="isPosting ? 'loading...!' : 'Submit'"
+                        class="btn btn-primary btn-sm"/>
+                     </div>
+            </div>
+        </div>
+    </div>
+</form>
+<pre>
+     <!-- {{userFormData.valid }}   -->
+</pre>
+</div>
