@@ -13,6 +13,8 @@ export class UserCreateComponent implements OnInit {
   
 userFormData:any;
 isPosting : boolean = false;
+  myDist: any;
+  skills: any;
 
   constructor(private userService:UserService,private router:Router) { 
     this.userFormData = new FormGroup({
@@ -23,11 +25,29 @@ isPosting : boolean = false;
           'country' : new FormControl(),
           'state' : new FormControl(),
           'city' : new FormControl(),
+          'skills' : new FormArray([
+            new FormGroup({
+              'skillName' : new FormControl("",Validators.required),
+              'ratting' : new FormControl()
+            }),
+            new FormGroup({
+              'skillName' : new FormControl("",Validators.required),
+              'ratting' : new FormControl()
+            }),
+            new FormGroup({
+              'skillName' : new FormControl("",Validators.required),
+              'ratting' : new FormControl()
+            }),
+            new FormGroup({
+              'skillName' : new FormControl("",Validators.required),
+              'ratting' : new FormControl()
+            }),
+            
+          ])
     })
     
+    
   }
-  
- 
  
   ngOnInit(): void {
   }

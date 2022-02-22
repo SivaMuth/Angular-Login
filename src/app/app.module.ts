@@ -15,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { DashboardDataComponent } from './dashboard-data/dashboard-data.component';
-import { UserEditComponent } from './user-edit/user-edit.component'
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { DashboardDirective } from './dashboard.directive'
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { UserEditComponent } from './user-edit/user-edit.component'
     UserViewComponent,
     LoginComponent,
     DashboardDataComponent,
-    UserEditComponent
+    UserEditComponent,
+    DashboardDirective
   ],
   imports: [
     BrowserModule,

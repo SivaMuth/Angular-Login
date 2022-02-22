@@ -60,12 +60,27 @@
                         <option value="CH">Chennai</option>
                         <option value="MA">Madurai</option>
                         <option value="CBE">Cbe</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="row">
-                <div class="col-lg-12 mt-3">
-                    <div class="col-lg-12"> 
+             </select>
+            </div>
+        </div>
+     <div class="row mt-3">
+      <label for="">Skills</label>
+      
+      <div formArrayName="skills" class="col-lg-12">
+        <div class="row" [formGroupName]="i" *ngFor="let skill of userFormData.get('skills').controls;let i = index">
+          <div class="col-lg-6">
+            <input type="text" formControlName="skillName" class="form-control" />
+          </div>
+          <div class="col-lg-6">
+            <input type="text" formControlName="ratting" class="form-control" />
+          </div>
+          
+        </div>
+      </div>
+    </div>
+     <div class="row">
+        <div class="col-lg-12 mt-3">
+            <div class="col-lg-12"> 
                        <!--  <div class="dls-menu-item" style="float: left;">
                             <button (click)="onPress()" class="btn btn-primary btn-sm">Submit</button>
                         </div>             

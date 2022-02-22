@@ -1,1 +1,153 @@
-<p>user-edit works!</p>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Edit User</h1>
+  </div>
+  
+  <div class="container">
+    <form [formGroup]="userFormData" (ngSubmit)="editFormData()">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="col-lg-12">
+            <label for="">User Name</label>
+            <input
+              [ngClass]="{
+                'form-error':
+                  !userFormData.get('username').valid &&
+                  userFormData.get('username').dirty,
+                'form-success':
+                  userFormData.get('username').valid &&
+                  userFormData.get('username').dirty
+              }"
+              type="text"
+              name="username"
+              formControlName="username"
+              class="form-control"
+            />
+            <span
+              *ngIf="
+                !userFormData.get('username').valid &&
+                userFormData.get('username').dirty
+              "
+              style="color: red"
+              >Username should be above 3 Char or below 15 Char</span
+            >
+          </div>
+          <div class="col-lg-12">
+            <label for="">E-Mail</label>
+            <input
+              [ngClass]="{
+                'form-error':
+                  !userFormData.get('email').valid &&
+                  userFormData.get('email').dirty,
+                'form-success':
+                  userFormData.get('email').valid &&
+                  userFormData.get('email').dirty
+              }"
+              type="text"
+              formControlName="email"
+              class="form-control"
+            />
+            <span
+              style="color: red"
+              *ngIf="
+                !userFormData.get('email').valid &&
+                userFormData.get('email').dirty
+              "
+              >Enter Valid Email</span
+            >
+          </div>
+          <div class="col-lg-12">
+            <div class="row">
+              <label for="">Phone</label>
+              <div class="col-lg-2">
+                <select formControlName="countryCode" class="form-control">
+                  <option value="91">+91</option>
+                  <option value="92">+92</option>
+                </select>
+              </div>
+              <div class="col-lg-10">
+                <input
+                  type="number"
+                  [ngClass]="{
+                    'form-error':
+                      !userFormData.get('phone').valid &&
+                      userFormData.get('phone').dirty,
+                    'form-success':
+                      userFormData.get('phone').valid &&
+                      userFormData.get('phone').dirty
+                  }"
+                  formControlName="phone"
+                  class="form-control"
+                />
+              </div>
+              <span
+                style="color: red"
+                *ngIf="
+                  !userFormData.get('phone').valid &&
+                  userFormData.get('phone').dirty
+                "
+                >Enter a valid Phone Number</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="col-lg-12">
+            <label for="">Country</label>
+            <select formControlName="country" class="form-control">
+              <option value="IN">India</option>
+              <option value="US">United States of America</option>
+              <option value="CH">China</option>
+            </select>
+          </div>
+          <div class="col-lg-12">
+            <label for="">State</label>
+            <select formControlName="state" class="form-control">
+              <option value="TN">Tamil Nadu</option>
+              <option value="BG">Banglore</option>
+              <option value="MU">Mumbai</option>
+            </select>
+          </div>
+          <div class="col-lg-12">
+            <label for="">City</label>
+            <select formControlName="city" class="form-control">
+              <option value="CH">Chennai</option>
+              <option value="MA">Madurai</option>
+              <option value="CBE">Cbe</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <label for="">Skills</label>
+       
+        <div formArrayName="skills" class="col-lg-12">
+          <div class="row" [formGroupName]="i" *ngFor="let skill of userFormData.get('skills').controls;let i = index">
+            <div class="col-lg-6">
+              <input type="text" formControlName="skillName" class="form-control" />
+            </div>
+            <div class="col-lg-6">
+              <input type="text" formControlName="ratting" class="form-control" />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-12 mt-3">
+          <div class="col-lg-12">
+            <input
+              [disabled]="(!userFormData.valid || isPosting)"
+              type="submit"
+              [value]="isPosting ? 'Loading...' : 'Submit'"
+              class="btn btn-primary btn-sm"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- <pre>
+          {{ userFormData.valid }}
+      </pre -->
+    >
+  </div>
+  

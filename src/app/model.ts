@@ -9,6 +9,11 @@ export interface UserData{
     City : String
 
 }
+interface Skills{
+    ratting : string,
+    skillName : string
+}
+
 export interface LoginData {
     email : string,
     password : string
